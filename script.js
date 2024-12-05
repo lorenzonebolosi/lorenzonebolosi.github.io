@@ -1,4 +1,10 @@
-document.getElementById("site-title").addEventListener("click", function() {
+document.getElementById("site-title").addEventListener("click", function () {
   const menu = document.getElementById("menu");
-  menu.classList.toggle("hidden");
+  if (menu.classList.contains("hidden")) {
+    menu.classList.remove("hidden");
+    menu.classList.add("shown");
+  } else {
+    menu.classList.remove("shown");
+    menu.classList.add("hidden");
+  }
 });
