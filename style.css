@@ -3,9 +3,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: url('images/background1.jpg') no-repeat center center fixed;
-  background-size: cover;
   height: 100vh;
+  background-size: cover;
+  background-position: 0% center;  /* Start from left */
+  transition: background-position 2s ease-in-out; /* Smooth transition for background */
+  position: relative;
 }
 
 /* Title in the Top-Left Corner */
@@ -36,6 +38,8 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  padding: 10px 20px;  /* Add some padding for spacing */
+  border-radius: 8px;  /* Optional: rounded corners */
 }
 
 #menu.hidden {
@@ -53,12 +57,12 @@ body {
 #menu a {
   text-decoration: none;
   font-size: 18px;
-  color: #007BFF;
+  color: #333;  /* Dark color for text on white background */
   transition: color 0.3s ease;
 }
 
 #menu a:hover {
-  color: #0056b3;
+  color: #007BFF;  /* Change to blue on hover */
 }
 
 /* Arrows */
