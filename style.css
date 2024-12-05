@@ -3,14 +3,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: url('images/background.jpg') no-repeat center center fixed;
+  background: url('images/background1.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  flex-direction: column;
 }
 
 /* Title in the Top-Left Corner */
@@ -30,36 +25,79 @@ body {
   color: #aaa;
 }
 
-/* Centered Menu */
+/* Menu Positioned Under the Title */
 #menu {
+  position: absolute;
+  top: 70px;
+  left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  text-align: center;
+  gap: 10px;
   opacity: 0;
-  transform: translateY(-20px); /* Start slightly above */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and slide */
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 #menu.hidden {
   opacity: 0;
-  pointer-events: none; /* Prevent interaction */
-  transform: translateY(-20px); /* Reset position */
+  pointer-events: none;
+  transform: translateY(-10px);
 }
 
 #menu.shown {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0); /* Slide into place */
+  transform: translateY(0);
 }
 
 #menu a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   color: #007BFF;
   transition: color 0.3s ease;
 }
 
 #menu a:hover {
   color: #0056b3;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  opacity: 0; /* Initially hidden */
+}
+
+.arrow:hover {
+  color: #fff;
+}
+
+/* Left and Right Arrows Positioning */
+#left-arrow {
+  left: 20px;
+}
+
+#right-arrow {
+  right: 20px;
+}
+
+/* Show arrows when hovering over the arrows themselves */
+.arrow:hover {
+  opacity: 1; /* Make arrows visible */
+}
+
+/* Ensuring arrows don't hide the menu */
+body {
+  pointer-events: auto;
+}
+
+/* Menu visibility */
+#landing:hover .arrow {
+  opacity: 1; /* Make arrows visible */
 }
