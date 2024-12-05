@@ -14,14 +14,14 @@ function changeBackgroundImage() {
   // Apply the left-to-right sliding effect by changing background-position
   document.body.style.transition = 'background-position 2s ease-in-out'; // Smooth transition for background
 
-  // Change the background image and adjust position
-  document.body.style.backgroundImage = `url('${backgroundImages[currentIndex]}')`;
-  document.body.style.backgroundPosition = '100% center';  // Start from right side
+  // Slide the current background to the left before changing the image
+  document.body.style.backgroundPosition = '100% center'; // Start the slide to the right
 
-  // After 2 seconds, move the background to the left side to simulate the transition
+  // After a brief delay (e.g., 100ms), change the background image and slide it back to the left
   setTimeout(() => {
-    document.body.style.backgroundPosition = '0% center'; // End at the left side
-  }, 100); // Short delay before starting the slide
+    document.body.style.backgroundImage = `url('${backgroundImages[currentIndex]}')`;
+    document.body.style.backgroundPosition = '0% center'; // Slide back to left
+  }, 100); // Delay the background image change to let the transition start
 
   // Reset the transition to allow future changes without the sliding effect
   setTimeout(() => {
