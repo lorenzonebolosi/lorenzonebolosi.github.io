@@ -57,12 +57,12 @@ body {
 #menu a {
   text-decoration: none;
   font-size: 18px;
-  color: #333;  /* Dark color for text on white background */
+  color: #ffffff;  /* Dark color for text on white background */
   transition: color 0.3s ease;
 }
 
 #menu a:hover {
-  color: #007BFF;  /* Change to blue on hover */
+  color: #aaa;  /* Change to blue on hover */
 }
 
 /* Arrows */
