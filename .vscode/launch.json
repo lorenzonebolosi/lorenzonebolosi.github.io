@@ -7,7 +7,10 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open work.html",
-            "file": "/Users/lorenzonebolosi/Documents/Projects/lorenzonebolosi.github.io/work.html"
+            "name": "Open work.html (with server)",
+            "url": "http://localhost:8000/work.html",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "start-server"
         }
-    ]}
+    ]
+}
