@@ -47,9 +47,9 @@ function renderProjects() {
   // Generate HTML for each project
   grid.innerHTML = filteredProjects.map(project => `
     <article class="project-card" data-category="${project.category || 'uncategorized'}">
-      <a href="project.html?id=${project.id}" class="project-link">
+      <a href="project.html?id=${encodeURIComponent(project.id)}" class="project-link">
         <div class="project-image">
-          ${project.thumbnail ? `<img src="${project.thumbnail}" alt="${project.title}" loading="lazy">` : '<div class="no-image">No image</div>'}
+          ${project.thumbnail ? `<img src="${encodeURI(project.thumbnail)}" alt="${project.title}" loading="lazy">` : '<div class="no-image">No image</div>'}
         </div>
         <div class="project-info">
           <h2 class="project-title">${project.title}</h2>

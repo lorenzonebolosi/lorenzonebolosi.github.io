@@ -62,7 +62,7 @@ async function loadProject() {
         <div class="project-gallery">
           ${project.images.map((img, index) => `
             <figure class="gallery-item">
-              <img src="${img}" alt="${project.title} - Image ${index + 1}" loading="lazy">
+              <img src="${encodeURI(img)}" alt="${project.title} - Image ${index + 1}" loading="lazy">
             </figure>
           `).join('')}
         </div>
