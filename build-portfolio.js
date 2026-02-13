@@ -30,7 +30,13 @@ function scanProject(projectName) {
   const projectPath = path.join(WORKS_DIR, projectName);
 
   // Skip if not a directory or starts with . or is README
-  if (!fs.statSync(projectPath).isDirectory() || projectName.startsWith('.') || projectName === 'README.md') {
+  try {
+    const stats = fs.statSync(projectPath);
+    if (!stats.isDirectory() || projectName.startsWith('.') || projectName === 'README.md') {
+      return null;
+    }
+  } catch (error) {
+    console.warn(`⚠️  Skipping ${projectName}: ${error.message}`);
     return null;
   }
 
@@ -50,11 +56,18 @@ function scanProject(projectName) {
   }
 
   // Get all images in the project folder
-  const files = fs.readdirSync(projectPath);
+  let files;
+  try {
+    files = fs.readdirSync(projectPath);
+  } catch (error) {
+    console.error(`❌ Error reading folder ${projectName}:`, error.message);
+    return null;
+  }
+
   const images = files
     .filter(isImage)
     .sort() // Alphabetical order
-    .map(img => `works/${projectName}/${img}`);
+    .map(img => `/works/${projectName}/${img}`); // Use absolute paths for GitHub Pages
 
   if (images.length === 0) {
     console.warn(`⚠️  Warning: ${projectName} has no images`);
