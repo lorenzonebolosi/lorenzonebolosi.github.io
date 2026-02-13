@@ -67,7 +67,7 @@ function scanProject(projectName) {
   const images = files
     .filter(isImage)
     .sort() // Alphabetical order
-    .map(img => `/works/${projectName}/${img}`); // Use absolute paths for GitHub Pages
+    .map(img => `works/${projectName}/${img}`); // Use relative paths
 
   if (images.length === 0) {
     console.warn(`⚠️  Warning: ${projectName} has no images`);
